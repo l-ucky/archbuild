@@ -267,6 +267,10 @@ set up as usual
 
 set things up per `wal` settings on their wiki
 
+If you want pywal to launch a wallpaper on bootup then copy this [exec_always --no-startup-id wal -i ~/HDD/Backgrounds] 
+into your i3 config file just like I have it. The `~/HDD/Backgrounds` portion should be unique to where you're storing
+your pictures. Just put in the directory destinations path like how I did it, leave the first bit (exec_always --no-startup-id wal -i)
+alone, seriously.
 
 
 This will be a rolling release and I'll update it as the ricing continues. Also files will be updated as required.
