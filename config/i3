@@ -40,6 +40,9 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
+# open firefox
+bindsym $mod+Shift+f exec firefox
+
 # start a terminal
 bindsym $mod+Return exec termite
 
@@ -185,3 +188,4 @@ exec_always --no-startup-id compton
 
 exec_always --no-startup-id ~/.config/polybar/.launch.sh
 
+exec_always --no-startup-id wal -i ~/HDD/Backgrounds
