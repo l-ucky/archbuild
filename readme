@@ -1,0 +1,273 @@
+Hello, 
+
+	This is a README of an entire communicated guide for downloading Arch Linux using the Anarchy installer along with a little ricing at the end. I was always a windows user, transfered to mac before, then tried out ChromeOS (dont...), finally I landed on Linux (Arch is best, imo). 
+
+	Linux is best because privacy, fvck paying for bloatware and 150gb sized OS, or other shittily designed OS. Honestly, my Arch Linux install is around 1Gb, it's free, and it's lighter than a feather to run. Right now I have 16Gb Ram, Intel i5 6500 @ 3.6Ghz, NVIDIA GTX 1050Ti; it's a dream to run linux on this, even given the lack of access to certain games. This isn't that big of an issue because the only game you need in your life is Old School RuneScape. 
+
+	If you really need that vidya succ, get a virtual machine using VirtualBox – run windows, download steam and play as you normally would. You can look up guides on that somewhere else, I dont do that here.  
+
+	The privacy side of linux I am not so versed in. I would recommend my guy, Prox, who heads BlackHatPrivacy. He can definitely teach you what you want to know surrounding privacy in the linux world – he can teach you to disappear honestly.
+
+	Credit for my learning on this subject goes to Prox, also known as The-Proxter (https://github.com/The-Proxster)
+
+He takes monero.
+
+Lucky
+
+
+
+
+
+
+
+Use Anarchy downloaded to download Arch Linux.
+	When in the menu to pick extra downloads, pick i3 for a Window Manager (WM).
+	Pick whatever else you want, as long as it isnt GNOME – it's trash.
+	Also dont forget to give your account sudo, or root, privlidges. 
+  
+  
+  
+Open up the terminal and do an update
+	sudo pacman -Syu
+	Put in your password and let the update run
+
+
+
+
+I dont know where else to put this step, so it's going up at the top: mounting your disks permanently:
+	get to your terminal (mod+enter, or click taskbar button while using a Desk.Enviro)
+	punch in 
+  
+  `lsblk`
+  
+		youll see a ton of shit pop up – look for things that say “sda, sdb, sdc, sdd, etc”
+		these other disks (your home disk is a, this is where your OS is) are your other hard drives, or external ones in my case.
+	
+  Find the disk you want to mount and follow my commands:
+		make a directory for the disk to live `mkdir HDD` if you want to call it HDD
+    
+		`cd` 
+    
+			X= whatever sd(b), sd(c), you want to mount [you need a place to mount the file and make it mountable]
+      
+		sudo mount /dev/sdX ~/HardDrive
+
+That should be it. When you command `ls` you will probably see the directory lit up green – this is good. 
+If something went wrong, you probably did the command wrong or I'm retarded. If you're stuck refer to the wiki. 
+It sucks hearing it, but we all have to suffer at the start. Honestly, I hate reading the wiki – it's tiring, so tiring. 
+
+I'm assuming you're based and are going to do an i3-gaps rice. If you want to use the Desktop Environment (DE) then, well, 
+just download what you need to make yourself happy (office stuff, discord, element, deemix, blackarch tools, the list is endless. 
+Also follow along and you'll still learn some usefull stuff – you'll just be slow doing it because WM keyboard shortcuts are master-race.
+
+** Everything is ugly right now – relax we will rice later.**
+
+**Everything that I downloaded here can be downloaded using either `pacman` or going to the AUR and cloning the git and doing some more steps:**
+
+**You can get `snapd` to download snap packages if you really want to. I dont do this because the AUR is exhaustive in the stuff they offer for you to use**
+
+
+
+
+
+
+How to download stuff using the AUR (ezpz mode):
+
+You dont have `git` yet, so, we need to do that first.
+	sudo pacman -S git
+Now you can clone git packages (aaaayyy)
+
+
+
+Onto using the Arch Linux User Repository (this is the app store for you normies);
+**I recommend making a `Download` directory in your home.**
+	mkdir Download
+	You can call this whatever you'd like, it IS case sensitive though
+
+Find something you want to download
+	lets choose flameshot (screen capture)
+Go to DDG (dont use google, whats wrong with you)
+	“flameshot AUR arch linux”
+Click the link that looks like: “https://aur.archlinux.org...”
+	Click the URL on the page (looks like this): https://aur.archlinux.org/flameshot-git.git
+Go to your terminal (mod+enter in i3)
+	`git clone https://aur.archlinux.org/flameshot-git.git) 
+
+**NERD TIP: dont be a sadist and type the URL out. Use ctrl+shift+V to paste (this is exclusive to the terminal.**
+**NERD TIP: use the TAB button so the terminal can auto-complete what you're trying to command. [if i use the command `cd` and start typing a work “`cd Dow...`”
+;I can expect 'Downloads' to pop up if I click tab. Afterwards click enter to execute your command**
+
+Look for the git you just cloned
+	`ls` (this is a command, I remember it as shorthand for `list`)
+Get into the place where you cloned the git
+	cd (the name of the flameshot git you cloned)
+you see something that says (package) or something similar; make the pakage, sync and install
+	`makepkg -si`
+	the `s` means sync and the `i` means install (idk for sure, but this is how I remember it)
+Finally you have to do one more thing to make 'er run
+	sudo pacman -U (flameshot package with the `.tar.zst`)
+	let it do its thing
+Go home
+	`cd`
+Test out if you did a bad job or not
+	type `flameshot` in the command line interface (CLI) and press enter
+
+Nothing should pop up on your screen, but you should be able to see a small icon pop up on your tool-bar. Personally I am using a different task bar or whatever you call it. We will install my version in the `ricing`. The bar is called `polybar` and its pretty sweet, I'm using the config my friend Prox has on his github account. 
+
+Now that you have a decent grasp on cloning, building your package, and generally using it, I'll be assuming some knowledge from here on out.
+
+
+
+
+
+Lets ditch the default terminal for a lighter version (termite):
+
+1. sudo pacman -S termite
+2. go to the config for i3 (WM) `cd ~/.config/i3`
+3. Use your fav text editor (micro, nano, vim, etc) `nano config`
+4. find `# start a terminal` below it there will be a line of text to launch your default terminal
+5. Replace “i3-sensible-terminal” with: termite
+6. Should look something like this: bindsym $ mod=return exec termite
+1. You can do this with whatever terminal emulater you want, just replace the name you use to launch.
+7. refresh your stuff (mod+shift+r)
+8. close out of your terminal sessions (mod+shift+q)
+9. click `mod+enter` to launch HOPEFULLY termite
+10. If done correctly aayyyy, if not go back and fix your spelling, or make sure you save your changes. 
+nano, micro, or vim will prompt you to save on exit, just save agree to everything when youre saving.
+
+Move your config from /etc/ to normal config spot for convenience:
+go to 
+	`cd ~/.config`
+make a directory for termite to live in 
+	`mkdir termite`
+Copy your shit over to the new place	
+	`cp /etc/xdg/termite/config ~/.config/termite/config
+Get into the place you just dumped your files into to check it out
+	cd ~/.config/termite
+(noice)
+hop into the config files using
+	`nano config`
+edit your font, size, colour, etc
+	look up guides, theres exhaustive ones out there, OR hold on for the `pywal` install for auto color changes and other stuff.
+ 
+
+
+ 
+You probably want to download `dmenu` - its a nice alternative for launching applications than a terminal.
+	`Sudo pacman -S dmenu`
+  
+If you like to type stuff use OpenOffice4:
+	use the AUR
+		heres link: https://aur.archlinux.org/openoffice.git
+	makepkg -si
+	sudo pacman -U
+	try launching
+  
+Ranger lets you view your files via CLI (cmd line interface)
+	sudo pacman -S ranger
+  
+Calibre lets you put ebooks on devices and also acts as a reader (heavy though, better alts for readers)
+	sudo pacman -S calibre
+  
+Zathura and Xpdf are viewers for PDF files
+	sudo pacman -S zathura
+	sudo pacman -S xpdf
+  
+Flameshot can be downloaded using pacman (package manager) as well as the AUR we did before.
+	If you already have flameshot from the above walkthrough then skip this
+		Just do a S. P.M -S flameshot for the install
+    
+Discord
+	sudo pacman -S discord
+  
+email, thunderbird
+
+	sudo pacman -S thunderbird
+  
+  #You can kind of get the idea how easy things are to download now. 
+  #Go nuts, download what you need for your creature comforts. Some things wont be available, 
+  #but there are linux alternatives in the AUR, for example some people choose not to use NVIDIA
+  #drivers and they opt for something AUR made. Do whatever, just dont brick your pc.
+
+Dont download anything besides deemix. It gives you FLAC or other high quality music recordings.|
+
+Go to AUR
+	https://aur.archlinux.org/deemix-pyweb-git.git
+Do the normal stuff: mkpkg -si; S.P. -U; etc
+
+(my notes are kind of bad here so I cant give an explanation expanding on the steps I recorded)
+1. export PATH=PATH$:~/HDD/Deemix
+2. cd Deemix (wherever you put it)
+2a. `./launch.sh
+3. Follow an online guide to set up your account
+4. Once you have your account set up, pick the destination for your downloads
+5. once you pick a spot, save it; now download EVERYTHING you want.
+
+Youll probably want to keep all this sweet sweet free music ensured for life. Lets do a backup
+		Go to your backup place and `mkdir backup` so we can throw everything in there.
+		Go home `cd`
+	DO THIS:
+
+	`cp -rv ~/HardDrive1/* ~/HardDrive2/BackUp`
+		r = recursive (moves folder and contents)
+		v = verbose (you see everything thats happening)
+		cp= copy file from place to place
+		mv = move anything anywhere
+
+I call this a backup but it kind of isnt. All you are truly doing is copying your current files onto your other hard drive. Do it frequently and you itll function the same way. If you want to do a traditional back up, go figure it out on the wiki. This is the smooth-brain method though – dont be lazy.
+Compton does transparency for all of your windows – its pretty sick, lets getter goin.
+
+
+
+**You might need to use tryone-compton (not tyrone-compton, lol)
+Go to the AUR and `git clone`
+
+mkpkg -si
+
+S. P. -U the tar.xz
+
+go to the config files for compton
+	`cd ~/.config/compton`
+If the config file doesnt exsit, go to the `.config/compton` place and command `nano`, then go copy a config for transparency into your nano window, exit, save it as `config`.
+**Check my compton config files, then copy/paste and play with it later.**
+
+After youre done there just refresh your session (mod+shift+r)
+	move your mouse around if it doesnt work right away
+Nitrogen is a wallpaper thing, its great for multiple monitor displays. You can stretch the image across both screens, or give each one a unique picture.
+
+S. P. -S nitrogen
+
+Go into the settings of nitrogen and locate a file to pick pictures from – you can select multiple.
+Get rid of boarders, and get G A P S. Prepare to make your WM look gr8 m8.
+
+copy my text:
+
+
+
+
+#get rid of window boarders
+for_window [class=”.*”] border pixel 1
+
+#gaps settings
+gaps inner 20
+gaps outer 2
+
+
+
+
+
+Paste that stuff into your i3 config, save, exit, refresh your session (mod+shift+r).
+pywal install. Auto colour scheme for your system based off your current background.
+
+AUR: https://aur.archlinux.org/pywal-git.git
+
+set up as usual
+
+`wal` to launch the menu which `wal` can use
+
+set things up per `wal` settings on their wiki
+
+
+
+This will be a rolling release and I'll update it as the ricing continues. Also files will be updated as required.
+
