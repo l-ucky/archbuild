@@ -50,8 +50,9 @@ I dont know where else to put this step, so it's going up at the top: mounting y
     
 			X= whatever sd(b), sd(c), you want to mount [you need a place to mount the file and make it mountable]
       
-		sudo mount /dev/sdX ~/HardDrive
-
+		sudo mount /dev/sdX[number] ~/HardDrive
+		ex: sudo mount /dev/sdb2 ~/HardDrive
+		
 That should be it. When you command `ls` you will probably see the directory lit up green – this is good. 
 If something went wrong, you probably did the command wrong or I'm retarded. If you're stuck refer to the wiki. 
 It sucks hearing it, but we all have to suffer at the start. Honestly, I hate reading the wiki – it's tiring, so tiring. 
