@@ -1,0 +1,33 @@
+# here is the repo https://codeberg.org/RemixDev/deemix
+
+step 1:
+go to where you want Deemix to live
+  `cd Panzer/Deemix/deemix-pyweb`
+  
+ step 2:
+ micro deemix.sh
+ 
+ copy this into the text editor:
+ 
+git clone https://codeberg.org/RemixDev/deemix-pyweb
+cd deemix-pyweb
+python3 -m pip install setuptools wheel --user
+python3 -m pip install -U -r requirements.txt
+git submodule update --init --recursive
+echo "Run python3 server.py to start the server and then connect to 127.0.0.1:6595"
+echo "If you don’t want to use your browser you can start the GUI by using python3 deemix_gui.py"
+
+save and quit out
+
+step 3:
+`sudo chmod +x ./deemix.sh`
+`./deemix.sh`
+
+step 4 (this is how you actually use the program):
+where you downloaded deemix-pyweb at, command this line:
+  python3 server.py 
+  (or ./server.py)
+  
+step 5:
+ look in the CLI where it says `Starting server at http://...` 
+  click on that link and it'll take you to the deemix page
