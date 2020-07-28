@@ -274,5 +274,16 @@ your pictures. Just put in the directory destinations path like how I did it, le
 alone, seriously.
 
 
+You may be looking around wondering how in the F you can print something off. Well, hopefully you're using an HP printer as they are 
+the most compatible with linux (supposedly). 
+
+Do this:
+
+`sudo pacman -S hplip`
+
+`sudo hp-setup`
+
+go through install wizard & pick your printer to print from.
+
 This will be a rolling release and I'll update it as the ricing continues. Also files will be updated as required.
 
