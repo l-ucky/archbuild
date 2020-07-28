@@ -1,0 +1,28 @@
+Put this in the same file as the polybar launcher. It should go here:
+
+`cd ~/.config/polybar`
+
+if you dont have a `polybar` directory, make one with `mkdir polybar` within the `~/.config/` directory. Example:
+
+`cd ~/.config/`
+`mkdir polybar'
+`cd polybar`
+'sudo micro'
+**paste in the config above, name it `config`**
+ctrl s, ctrl q (save and quit)
+
+you should be back to the terminal menu; mod+shift+r (refresh)
+
+launch your polybar with the `/.launch.sh` file. If you havent yet, make it executable with (sudo chmod +x /.launch.sh) [x means executable; chmod is some kind of "change" command - idk exactly.]
+
+if you have no sweet fucking clue what im talking about, I'll try and give you a common solution to a common problem.
+
+Solution:
+ Go find where the polybar download ended up if you installed it elsewhere
+         For instance, I download all of my packages off of my main hard drive where my OS lives. So, I have to travel to a different spot to find my `launch.sh` file. 
+         I'll travel to my directories, select my hard drive where I installed Polybar and then keep descending within the polybar directory until I find the `launch.sh` script I need to execute it. 
+         My config, the one you've copied into the `~/.config/polybar` directory you made, thats fine where it is. 
+
+I set a command up in my config file to autolaunch polybar on system boot, it's at the bottom of the config and it looks like `EXEC` or similar. 
+Because of this you shouldn't have to travel to the directory to launch the `launch.sh` file every time you boot up. 
+If the bars dont launch, then, well, I fucked up or you did who knows - it works on my end.
